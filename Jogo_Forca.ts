@@ -9,12 +9,12 @@ function input(pergunta: string): Promise<string> { //Criando uma função que e
      return new Promise((resolve => { 
           rl.question(pergunta, (resposta) => {
                resolve(resposta);
-          })
-     }))
+          });
+     }));
 }
 
 async function forca(listaPalavras: string[], tentativas: number): Promise<void> { //Função assíncrona que inicia o jogo e recebe a lista de criaturas e as tentativas como parâmetro
-     console.log("Seja bem vindo(a) ao forcatti!!! Aqui, o seu objetivo é acertar a palavra correta em 5 tentativas 😁");
+     console.log("\nSeja bem vindo(a) ao forcatti!!! Aqui, o seu objetivo é acertar a palavra correta em 5 tentativas 😁");
 
      console.log("Dica: Criatura/Mob do Minecraft.");
 
@@ -50,9 +50,9 @@ async function forca(listaPalavras: string[], tentativas: number): Promise<void>
                if (letrasReveladas.join("") === palavraSorteada) { //Caso todas as letras da palavra sorteadas sejam preenchidas, o jogador/usuário vence o jogo 🥳🥳🥳
                     console.log("Parabéns!!! Você descobriu a palavra 🤩");
 
-                    rl.close(); //Fechando o input de dados
-
                     console.log(`\nPalavra: ${palavraSorteada}`); //Revelando a palavra que foi sorteada da lista
+
+                    return; //Encerrando o jogo, caso o usuário acerte a palavra sorteada
                }
           }
           else { //Caso o usuário digite uma letra que não tenha na palavra sorteada...
@@ -63,12 +63,29 @@ async function forca(listaPalavras: string[], tentativas: number): Promise<void>
      console.log(`Fim de jogo. A palavra correta era: ${palavraSorteada}`); //Se o usuário zerar suas tentativas, o jogo se encerra e a palavra sorteada é revelada
 
      console.log("Infelizmente você perdeu. 😭");
-
-     rl.close(); //Fechando o input de dados
 }
 
-const listaPalavras = ["Creeper", "Zumbi", "Aldeao", "Ghast", "Rangente", "Esqueleto", "Piglin", "Farejador", "Lavagante", "Enderman", "Cavalo", "Allay", "Axolote", "Bacalhau", "Baiacu", "Burro", "Camelo", "Coelho", "Galinha", "Gato", "Girino", "Sapo", "Jaguatirica", "Lula", "Mula", "Morcego", "Ovelha", "Papagaio", "Porco", "Salmao", "Tartaruga", "Tatu", "Vaca", "Abelha", "Afogado", "Aranha", "Cabra", "Golfinho", "Lhama", "Lobo", "Panda", "Raposa", "Blaze", "Bruxa", "Defensor", "Devastador", "Endermite", "Errante", "Pantanoso", "Guardiao", "Hoglin", "Invocador", "Phantom", "Saqueador", "Shulker", "Slime", "Traca", "Vex", "Vingador", "Vortice", "Zoglin", "Wither"]; //Lista com todas as criaturas do Minecraft que possuem apenas uma palavra. (foi desconsiderado criaturas que tinham mais de uma palavra, tipo Dragão do Ender, Vendedor ambulante, aranha das cavernas etc.) 
+async function iniciar_jogo() { //Criando uma função assíncrona que irá iniciar o jogo
+     const listaPalavras = ["Creeper", "Zumbi", "Aldeao", "Ghast", "Rangente", "Esqueleto", "Piglin", "Farejador", "Lavagante", "Enderman", "Cavalo", "Allay", "Axolote", "Bacalhau", "Baiacu", "Burro", "Camelo", "Coelho", "Galinha", "Gato", "Girino", "Sapo", "Jaguatirica", "Lula", "Mula", "Morcego", "Ovelha", "Papagaio", "Porco", "Salmao", "Tartaruga", "Tatu", "Vaca", "Abelha", "Afogado", "Aranha", "Cabra", "Golfinho", "Lhama", "Lobo", "Panda", "Raposa", "Blaze", "Bruxa", "Defensor", "Devastador", "Endermite", "Errante", "Pantanoso", "Guardiao", "Hoglin", "Invocador", "Phantom", "Saqueador", "Shulker", "Slime", "Traca", "Vex", "Vingador", "Vortice", "Zoglin", "Wither"]; //Lista com todas as criaturas do Minecraft que possuem apenas uma palavra. (foi desconsiderado criaturas que tinham mais de uma palavra, tipo Dragão do Ender, Vendedor ambulante, Aranha das Cavernas etc.) 
 
-const tentativas = 10; //Número de tentativas
+     const tentativas = 10; //Número de tentativas
 
-console.log(forca(listaPalavras, tentativas)); //Chamando a função para iniciar o jogo
+     while (true) { //Laço de repetição que roda o jogo no terminal
+          await forca(listaPalavras, tentativas); //Chamando a função do jogo da forca (forcatti)
+
+          const continuar = (await input("Você deseja continuar jogando? (Digite sim ou não): ")).toLowerCase();
+
+          if (continuar !== "sim" && continuar !== "s") { //Caso o usuário não queria continuar o jogo
+               console.log("Tudo bem. Muito obrigado por jogar 😁");
+
+               rl.close(); //Fechando o input de dados
+
+               break; //Parando o jogo
+          }
+          else { 
+               console.log("Digite uma resposta válida.");
+          }
+     }    
+}
+
+iniciar_jogo(); //Chamando a função que inicia o jogo

@@ -36,10 +36,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var readline = require("readline");
+var readline = require("readline"); //O módulo readline lê inputs do usuário no terminal
 var rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
+    input: process.stdin, //Entrada
+    output: process.stdout, //Saída 
 });
 function input(pergunta) {
     return new Promise((function (resolve) {
@@ -54,38 +54,39 @@ function forca(listaPalavras, tentativas) {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    console.log("Seja bem vindo(a) ao forcucas!!! Aqui, o seu objetivo é acertar a palavra correta em 5 tentativas 😁");
+                    console.log("\nSeja bem vindo(a) ao forcatti!!! Aqui, o seu objetivo é acertar a palavra correta em 5 tentativas 😁");
+                    console.log("Dica: Criatura/Mob do Minecraft.");
                     palavraSorteada = listaPalavras[Math.floor(Math.random() * listaPalavras.length)].toLowerCase();
                     letrasReveladas = Array(palavraSorteada.length).fill("_");
                     i = 0;
                     _a.label = 1;
                 case 1:
                     if (!(i < tentativas)) return [3 /*break*/, 4];
-                    console.log("\nPalavra escrita: " + letrasReveladas.join(" "));
+                    console.log("\nPalavra escrita: " + letrasReveladas.join(" ")); //Exibindo a palavra parcialmente escrita, pulando um espaço entre as letras
                     return [4 /*yield*/, input("Tentativa ".concat(i + 1, " de ").concat(tentativas, ": Digite uma letra: "))];
                 case 2:
                     letra = (_a.sent()).toLowerCase();
-                    if (letra.length !== 1) {
+                    if (letra.length !== 1) { //Verificando se o usuario digitou mais de uma letra
                         console.log("Digite apenas uma letra!");
-                        i--;
+                        i--; //Retirando a tentativa, caso o input seja inválido
                         return [3 /*break*/, 3];
                     }
                     acerto = false;
-                    for (j = 0; j < palavraSorteada.length; j++) {
-                        if (palavraSorteada[j] === letra) {
-                            letrasReveladas[j] = letra;
+                    for (j = 0; j < palavraSorteada.length; j++) { //Loop que percorre as letras da palavra sorteada 
+                        if (palavraSorteada[j] === letra) { //Verificando se a palavra sorteada possui a letra digitada pelo usuário
+                            letrasReveladas[j] = letra; //Aqui, a letra digitada pelo usuário é inserida na palavra sorteada
                             acerto = true;
                         }
                     }
-                    if (acerto) {
+                    if (acerto) { //Caso o usuário acerte a letra
                         console.log("Letra correta! 😉");
-                        if (letrasReveladas.join("") === palavraSorteada) {
+                        if (letrasReveladas.join("") === palavraSorteada) { //Caso todas as letras da palavra sorteadas sejam preenchidas, o jogador/usuário vence o jogo 🥳🥳🥳
                             console.log("Parabéns!!! Você descobriu a palavra 🤩");
-                            rl.close();
-                            console.log("\nPalavra: ".concat(palavraSorteada));
+                            console.log("\nPalavra: ".concat(palavraSorteada)); //Revelando a palavra que foi sorteada da lista
+                            return [2 /*return*/]; //Encerrando o jogo, caso o usuário acerte a palavra sorteada
                         }
                     }
-                    else {
+                    else { //Caso o usuário digite uma letra que não tenha na palavra sorteada...
                         console.log("Letra incorreta. 😪");
                     }
                     _a.label = 3;
@@ -93,14 +94,42 @@ function forca(listaPalavras, tentativas) {
                     i++;
                     return [3 /*break*/, 1];
                 case 4:
-                    console.log("Fim de jogo. A palavra correta era: ".concat(palavraSorteada));
+                    console.log("Fim de jogo. A palavra correta era: ".concat(palavraSorteada)); //Se o usuário zerar suas tentativas, o jogo se encerra e a palavra sorteada é revelada
                     console.log("Infelizmente você perdeu. 😭");
-                    rl.close();
                     return [2 /*return*/];
             }
         });
     });
 }
-var listaPalavras = ["Creeper", "Zumbi", "Aldeao", "Ghast", "Rangente", "Esqueleto", "Piglin", "Farejador", "Lavagante", "Enderman", "Cavalo", "Allay", "Axolote", "Bacalhau", "Baiacu", "Burro", "Camelo", "Coelho", "Galinha", "Gato", "Girino", "Sapo", "Jaguatirica", "Lula", "Mula", "Morcego", "Ovelha", "Papagaio", "Porco", "Salmão", "Tartaruga", "Tatu", "Vaca", "Abelha", "Afogado", "Aranha", "Cabra", "Golfinho", "Lhama", "Lobo", "Panda", "Raposa", "Blaze", "Bruxa", "Defensor", "Devastador", "Endermite", "Errante", "Pantanoso", "Guardiao", "Hoglin", "Invocador", "Phantom", "Saqueador", "Shulker", "Slime", "Traca", "Vex", "Vingador", "Vortice", "Zoglin", "Wither"];
-var tentativas = 10;
-console.log(forca(listaPalavras, tentativas));
+function iniciar_jogo() {
+    return __awaiter(this, void 0, void 0, function () {
+        var listaPalavras, tentativas, continuar;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    listaPalavras = ["Creeper", "Zumbi", "Aldeao", "Ghast", "Rangente", "Esqueleto", "Piglin", "Farejador", "Lavagante", "Enderman", "Cavalo", "Allay", "Axolote", "Bacalhau", "Baiacu", "Burro", "Camelo", "Coelho", "Galinha", "Gato", "Girino", "Sapo", "Jaguatirica", "Lula", "Mula", "Morcego", "Ovelha", "Papagaio", "Porco", "Salmao", "Tartaruga", "Tatu", "Vaca", "Abelha", "Afogado", "Aranha", "Cabra", "Golfinho", "Lhama", "Lobo", "Panda", "Raposa", "Blaze", "Bruxa", "Defensor", "Devastador", "Endermite", "Errante", "Pantanoso", "Guardiao", "Hoglin", "Invocador", "Phantom", "Saqueador", "Shulker", "Slime", "Traca", "Vex", "Vingador", "Vortice", "Zoglin", "Wither"];
+                    tentativas = 10;
+                    _a.label = 1;
+                case 1:
+                    if (!true) return [3 /*break*/, 4];
+                    return [4 /*yield*/, forca(listaPalavras, tentativas)];
+                case 2:
+                    _a.sent(); //Chamando a função do jogo da forca (forcatti)
+                    return [4 /*yield*/, input("Você deseja continuar jogando? (Digite sim ou não): ")];
+                case 3:
+                    continuar = (_a.sent()).toLowerCase();
+                    if (continuar !== "sim" && continuar !== "s") { //Caso o usuário não queria continuar o jogo
+                        console.log("Tudo bem. Muito obrigado por jogar 😁");
+                        rl.close(); //Fechando o input de dados
+                        return [3 /*break*/, 4]; //Parando o jogo
+                    }
+                    else {
+                        console.log("Digite uma resposta válida.");
+                    }
+                    return [3 /*break*/, 1];
+                case 4: return [2 /*return*/];
+            }
+        });
+    });
+}
+iniciar_jogo(); //Chamando a função que inicia o jogo

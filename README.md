@@ -51,4 +51,4 @@ node .\Jogo_Forca.js
 
 IMPORTANTE: Tem que rodar o arquivo .js
 
-E pronto! Você pode jogar o Forcatti agora! Boa sorte!
+E pronto! Você pode jogar o Forcucas agora! Boa sorte!

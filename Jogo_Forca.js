@@ -54,7 +54,7 @@ function forca(listaPalavras, tentativas) {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    console.log("\nSeja bem vindo(a) ao forcatti!!! Aqui, o seu objetivo é acertar a palavra correta em 5 tentativas 😁");
+                    console.log("\nSeja bem vindo(a) ao forcucas!!! Aqui, o seu objetivo é acertar a palavra correta em 5 tentativas 😁");
                     console.log("Dica: Criatura/Mob do Minecraft.");
                     palavraSorteada = listaPalavras[Math.floor(Math.random() * listaPalavras.length)].toLowerCase();
                     letrasReveladas = Array(palavraSorteada.length).fill("_");
@@ -81,8 +81,8 @@ function forca(listaPalavras, tentativas) {
                     if (acerto) { //Caso o usuário acerte a letra
                         console.log("Letra correta! 😉");
                         if (letrasReveladas.join("") === palavraSorteada) { //Caso todas as letras da palavra sorteadas sejam preenchidas, o jogador/usuário vence o jogo 🥳🥳🥳
-                            console.log("Parabéns!!! Você descobriu a palavra 🤩");
-                            console.log("\nPalavra: ".concat(palavraSorteada)); //Revelando a palavra que foi sorteada da lista
+                            console.log("\nParabéns!!! Você descobriu a palavra 🤩");
+                            console.log("Palavra: ".concat(palavraSorteada)); //Revelando a palavra que foi sorteada da lista
                             return [2 /*return*/]; //Encerrando o jogo, caso o usuário acerte a palavra sorteada
                         }
                     }
@@ -94,7 +94,7 @@ function forca(listaPalavras, tentativas) {
                     i++;
                     return [3 /*break*/, 1];
                 case 4:
-                    console.log("Fim de jogo. A palavra correta era: ".concat(palavraSorteada)); //Se o usuário zerar suas tentativas, o jogo se encerra e a palavra sorteada é revelada
+                    console.log("\nFim de jogo. A palavra correta era: ".concat(palavraSorteada)); //Se o usuário zerar suas tentativas, o jogo se encerra e a palavra sorteada é revelada
                     console.log("Infelizmente você perdeu. 😭");
                     return [2 /*return*/];
             }
@@ -108,14 +108,14 @@ function iniciar_jogo() {
             switch (_a.label) {
                 case 0:
                     listaPalavras = ["Creeper", "Zumbi", "Aldeao", "Ghast", "Rangente", "Esqueleto", "Piglin", "Farejador", "Lavagante", "Enderman", "Cavalo", "Allay", "Axolote", "Bacalhau", "Baiacu", "Burro", "Camelo", "Coelho", "Galinha", "Gato", "Girino", "Sapo", "Jaguatirica", "Lula", "Mula", "Morcego", "Ovelha", "Papagaio", "Porco", "Salmao", "Tartaruga", "Tatu", "Vaca", "Abelha", "Afogado", "Aranha", "Cabra", "Golfinho", "Lhama", "Lobo", "Panda", "Raposa", "Blaze", "Bruxa", "Defensor", "Devastador", "Endermite", "Errante", "Pantanoso", "Guardiao", "Hoglin", "Invocador", "Phantom", "Saqueador", "Shulker", "Slime", "Traca", "Vex", "Vingador", "Vortice", "Zoglin", "Wither"];
-                    tentativas = 10;
+                    tentativas = 15;
                     _a.label = 1;
                 case 1:
                     if (!true) return [3 /*break*/, 4];
                     return [4 /*yield*/, forca(listaPalavras, tentativas)];
                 case 2:
                     _a.sent(); //Chamando a função do jogo da forca (forcatti)
-                    return [4 /*yield*/, input("Você deseja continuar jogando? (Digite sim ou não): ")];
+                    return [4 /*yield*/, input("\nVocê deseja continuar jogando? (Digite sim ou não): ")];
                 case 3:
                     continuar = (_a.sent()).toLowerCase();
                     if (continuar !== "sim" && continuar !== "s") { //Caso o usuário não queria continuar o jogo

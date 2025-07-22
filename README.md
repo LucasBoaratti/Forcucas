@@ -29,7 +29,13 @@ code .: Atalho direto para entrar no VSCode.
 npm install -g typescript
 ```
 
-5. Após a instalação do TypeScript, utilize o comando tsc para "clonar" o código e mandá-lo para o JavaScript (Cada alteração no arquivo TypeScript, você roda esse comando):
+5. Agora, instale também a pasta node_modules, mas apenas com algumas de suas dependências:
+
+```node
+npm i --save-dev @types/node
+```
+
+6. Após a instalação do typescript e da pasta node_modules, utilize o comando tsc para "clonar" o código e mandá-lo para o JavaScript (Cada alteração no arquivo TypeScript, você roda esse comando):
 
 ```node
 tsc .\Jogo_Forca.ts
@@ -37,7 +43,7 @@ tsc .\Jogo_Forca.ts
 
 IMPORTANTE: Tem que rodar o arquivo .ts
 
-6. Agora rode o node com o arquivo JavaScript:
+7. Agora rode o node com o arquivo JavaScript:
 
 ```node
 node .\Jogo_Forca.js

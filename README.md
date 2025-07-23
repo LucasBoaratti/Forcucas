@@ -1,6 +1,6 @@
 ## Sobre o jogo
 
-O jogo Forcatti é um jogo da forca clássico que foi feito em TypeScript para entender como funciona a lógica do próprio TypeScript e da sua interação com o JavaScript.
+O jogo Forcucas é um jogo da forca clássico que foi feito em TypeScript para entender como funciona a lógica do próprio TypeScript e da sua interação com o JavaScript.
 
 ## Como instalar o jogo
 

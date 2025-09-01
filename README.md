@@ -1,54 +1,78 @@
-## Sobre o jogo
+# 💪🏻 Forcucas 💪🏻
 
-O jogo Forcucas é um jogo da forca clássico que foi feito em TypeScript para entender como funciona a lógica do próprio TypeScript e da sua interação com o JavaScript.
+#### O jogo Forcucas é um jogo da forca clássico que foi feito em TypeScript para entender como funciona a lógica da linguagem e de sua interação com o JavaScript.
 
-## Como instalar o jogo
+## 🎮 Como usar o jogo 🎮
 
-Passo a passo de como instalar o projeto e começar a jogar:
+1. Clique no botão Code e copia a URL do projeto:
 
-1. Installe o Node.js: https://nodejs.org/pt/download
+```bash
+https://github.com/LucasBoaratti/Forcucas.git
+```
 
-2. Segue as instruções de instalação;
+2. Abra o Prompt de comando (ou PowerShell ou GitBash) em sua área de trabalho ou em documentos e realize o seguinte comando:
 
-3. Após instalar o node, crie uma pasta na área de trabalho do seu computador/notebook, abre ela com o prompt de comando (CMD) e realize os seguintes comandos:
+OBS: Certifique que o Git está instalado no seu computador. Caso não esteja, instale aqui: [Git](https://git-scm.com/downloads)
 
-```git
-git clone https://github.com/LucasBoaratti/Jogo-da-forca-em-TypeScript.git
+```bash 
+git clone https://github.com/LucasBoaratti/Forcucas.git
+```
 
+3. Acesse a pasta do projeto:
+
+```bash
+cd .\Forcucas
+```
+
+4. Agora, entre no VSCode:
+
+```bash
 code .
 ```
-Explicação dos comandos:
 
-git clone: você clona o repositório para dentro de sua pasta, com os arquivos e tudo.
+5. Antes de continuar, verifique se o node está instalado em seu computador. Se não tiver, baixe [aqui](https://nodejs.org/pt/download);
 
-code .: Atalho direto para entrar no VSCode.
+6. Após instalar o node, entre no VSCode e abra o terminal com CTRL + J ou CTRL + ' e instale a pasta node_modules, mas apenas com algumas independências:
 
-4. Após entrar no VSCode, abra o terminal e instale o TypeScript:
+```bash
+npm install --save-dev @types/node
+``` 
+
+7. Após a instalação do node, instale o TypeScript:
    
-```node
+```bash
 npm install -g typescript
 ```
 
-5. Agora, instale também a pasta node_modules, mas apenas com algumas de suas dependências:
-
-```node
-npm i --save-dev @types/node
-```
-
-6. Após a instalação do typescript e da pasta node_modules, utilize o comando tsc para "clonar" o código e mandá-lo para o JavaScript (Cada alteração no arquivo TypeScript, você roda esse comando):
+8. Agora, "clone" o código e mandá-lo para o JavaScript (Cada alteração no arquivo TypeScript, você roda esse comando):
 
 ```node
 tsc .\Jogo_Forca.ts
 ```
 
-IMPORTANTE: Tem que rodar o arquivo .ts
+### IMPORTANTE: Tem que rodar o arquivo .ts
 
-7. Agora rode o node com o arquivo JavaScript:
+9. Agora rode o node com o arquivo JavaScript:
 
 ```node
 node .\Jogo_Forca.js
 ```
 
-IMPORTANTE: Tem que rodar o arquivo .js
+### IMPORTANTE: Tem que rodar o arquivo .js
 
-E pronto! Você pode jogar o Forcucas agora! Boa sorte!
+#### E pronto! Você pode jogar o Forcucas e terá 15 tentativas de acertar a criatura do Minecraft. Boa sorte! :D
+
+# 🕹️ Linguagens/tecnologias utilizadas 🕹️
+
+## FrontEnd
+
+<div style="display: flex;">
+   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="TypeScript" width="70px" height="70px" />
+   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" width="70px" height="70px" />
+</div>
+
+## Ferramentas
+
+<div>
+   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" alt="Node" width="70px" height="70px" />
+</div>
